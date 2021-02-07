@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sando Sawa</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
+    </script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="main.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Research.html">Research</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="CV.html">CV</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="Publication.html">Publication</a>
+          </li>
+		  <li class="nav-item active">
+            <a class="nav-link" href="Tips.html">Tips</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Japanese</a>
+              <a class="dropdown-item" href="main.html">English</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <section>
+      <div class="jumbotron text-center mt-2 jumbotron--img2 jumbotron--text">	
+			<div class="container">
+			  <div class="row">
+				<div class="col-12">
+					<h1>弾性体力学</h1>
+				</div>
+			  </div>
+			</div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <u><h2 id="stress">応力</h2></u>
+              <p>応力は単位面積に作用する力として定義される。
+                このとき、力はベクトル量なので、応力もベクトルである。
+                したがって、任意の面に応力$S$が作用している場合、$S$は面に垂直に作用する成分（$\sigma$：垂直応力）と平行に作用する成分（$\tau$：剪断応力）に分解することができる。</p>
+                <div class="pic">
+                  <img src="images/stressfield.jpg" alt="応力状態">
+                  <figcaption>図１：直交座標系における応力成分（[1]を修正）</figcaption>
+                </div>
+                <p>直交座標系において同様に応力を分解すると図1のようになる。垂直応力$\sigma_x$の添字$x$は応力が作用する方向を表す。
+                一方、剪断応力$\tau_{xy}$の最初の添字$x$は応力の作用する面の法線方向を表し、２番目の添字は応力の作用する方向を表している。
+                この応力は以下のように行列表記をすることができ、これを応力テンソルと呼ぶ。
+                \[
+                S=\left(
+                  \begin{array}{ccc}
+                    \sigma_x & \tau_{xy} & \tau_{xz} \\
+                    \tau_{yx} & \sigma_y & \tau_{yz} \\
+                    \tau_{zx} & \tau_{zy} & \sigma_z
+                  \end{array}
+                \right)
+                \tag{1}
+                \]
+              </p>
+              <p>剪断応力成分が0となるように座標系をとったときの垂直応力のことを主応力と呼ぶ。
+                ３つの主応力を$\sigma_1\ge\sigma_2\ge\sigma_3$になるようにとったとき、$\sigma_1$を最大主応力、$\sigma_2$を中間主応力、$\sigma_3$を最小主応力と呼ぶ。
+                ある座標系で、とある応力状態（$\sigma_x, \sigma_y, \sigma_z, \tau_xy, \tau_yz, \tau_zx$）が与えられたとき、
+                主応力は下記の式を展開した$\lambda$に関する３次方程式の根である。
+                \[
+                \mathrm{det}(\sigma-\lambda E)=\left|
+                  \begin{array}{ccc}
+                    (\sigma_x-\lambda) & \tau_{xy} & \tau_{xz} \\
+                    \tau_{yx} & (\sigma_y-\lambda) & \tau_{yz} \\
+                    \tau_{zx} & \tau_{zy} & (\sigma_z-\lambda)
+                  \end{array}
+                \right|
+                \tag{2}
+                \]
+              </p>
+              <p>弾性体が平衡状態にあるとき、応力テンソル$\sigma_{ij}$と体積力$F_i$の関係は次の式のようになる。
+                \[
+                \sigma_{ji,j}+F_i=0
+                \tag{3}
+                \]
+                式(3)を導出するためには$(0,0,0), (dx,0,0), (dx,dy,0), (0,dy,0), (0,dy,dz), (dx,dy,dz), (dx,0,dz), (0,0,dz)$を頂点とする微小直方体を考え、各軸方向の式のつりあいを求める。
+              </p>
+              <div class="pic">
+                <img src="images/smallstressfield.jpg" alt="x軸応力状態">
+                <figcaption>図２：x軸方向における応力成分（[1]を修正）</figcaption>
+              </div>
+              <p>x軸方向における応力成分は図2のようになる。偏微分$\partial \sigma_{xx}/\partial x$は単位距離当たりの変化量を表す。したがって距離をかけてあれば離れた面での応力がわかる。
+                x軸方向の釣り合いの式は、体積力$F_x$が作用していることを考慮して、
+                \[
+                \left(\sigma_{xx}+\frac{\partial \sigma_{xx}}{\partial x}dx\right)dydz-\sigma_{xx}dydz
+                +\left(\sigma_{yx}+\frac{\partial \sigma_{yx}}{\partial y}dy\right)dzdx-\sigma_{zx}dzdx
+                +\left(\sigma_{zx}+\frac{\partial \sigma_{zx}}{\partial z}dx\right)dxdy-\sigma_{zx}dxdy
+                +F_x dxdydz=0
+                \tag{4}
+                \]
+                整理すると、
+                \[
+                \frac{\partial \sigma_{xx}}{\partial x}+\frac{\partial \sigma_{yx}}{\partial y}+\frac{\partial \sigma_{zx}}{\partial z}+F_x=0
+                \tag{5}
+                \]
+                y軸、z軸も同様で、総和規約と$\frac{\partial \sigma_{ji}}{\partial x_j}=\sigma_{ji,j} (x_1=x, x_2=y, x_3=z)$より、式(3)が求まる。
+              </p>
+              <div class="pic">
+                <img src="images/cauchy.jpg" alt="コーシーの関係">
+                <figcaption>図３：微小四面体（[1]を修正）</figcaption>
+              </div>
+              <p>応力テンソル$\sigma_{ij}$が与えられたとき、法線ベクトルが$n$である面（面積：$dS$）に作用する応力ベクトル$T_i$は、
+                \[
+                T_i=\sigma_{ij}n_j
+                \tag{6}
+                \]
+                式(6)をコーシーの関係式と呼ぶ。微小4面体の体積は$dS\cdot h/3$なので、体積力を$F$とするとx方向にかかる体積力による力は$F_x dS\cdot h/3$となる。
+                また、$yz$面、$zx$面、$xy$面の面積はそれぞれ、$dS\cdot n_x$、$dS\cdot n_y$、$dS\cdot n_z$なので、微小4面体におけるx軸方向の力の釣り合いは、
+                \[
+                T^n_xdS+F_x\cdot \frac{1}{3}dS\cdot h=\sigma_{xx}dS\cdot n_x+\sigma_{yy}dS\cdot n_y+\sigma_{zz}dS\cdot n_z
+                \tag{7}
+                \]
+                微小4面体なので$h\rightarrow0$である。したがって、
+                \[
+                T^n_x=\sigma_{xx}n_x+\sigma_{yy}n_y+\sigma_{zz}n_z
+                \tag{8}
+                \]
+                $y$軸、$z$軸も同様で、総和規約を用いると式(6)が求まる。
+              </p>
+            </div>
+          </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h3 id="mohr">モール円</h3></u>
+            <div class="pic">
+              <img src="images/mohr-circle.jpg" alt="斜面">
+              <figcaption>図４：斜面Pにかかる応力</figcaption>
+            </div>
+            <p>最大主応力から角度$\theta$だけ傾いた斜面をP（面積：a）とする。この面にかかる法線応力は力の釣り合いより、
+            \begin{align*}
+            a\cdot \sigma&=a\cos\theta\cdot\sigma_1 \cos\theta+a\sin\theta\cdot\sigma_2 \sin\theta  \\
+            \sigma&=\sigma_1\cos^2\theta+\sigma_2\sin^2\theta \\
+            &=\sigma_1 (1-\sin^2\theta)+\sigma_2\sin^2\theta  \\
+            &=\sigma_1-(\sigma_1-\sigma_2)\sin^2\theta  \\
+            &=\sigma_1-(\sigma_1-\sigma_2)\frac{1-\cos 2\theta}{2}  \\
+            &=\frac{1}{2}(\sigma_1+\sigma_2)+\frac{1}{2}(\sigma_1-\sigma_2)\cos 2\theta
+            \tag{9}
+            \end{align*}
+            同様にせん断応力も、
+            \begin{align*}
+            a\cdot \tau&=a\cos\theta\cdot\sigma_1 \sin\theta-a\sin\theta\cdot\sigma_2 \cos\theta  \\
+            \tau&=\sigma_1 \sin\theta\cos\theta-\sigma_2\sin\theta\cos\theta  \\
+            \tau&=\frac{1}{2}(\sigma_1-\sigma_2)2\sin\theta\cos\theta \\
+            \tau&=\frac{1}{2}(\sigma_1-\sigma_2)\sin 2\theta
+            \tag{10}
+            \end{align*}
+            式(9)と(10)は以下のように変形できる。
+            \begin{align*}
+            \left(\sigma-\frac{\sigma_1+\sigma_2}{2}\right)^2&=\left(\frac{\sigma_1-\sigma_2}{2}\right)^2 \cos^2 2\theta \tag{11} \\
+            \tau^2&=\left(\frac{\sigma_1-\sigma_2}{2}\right)^2 \sin^2 2\theta \tag{12}
+            \end{align*}
+            式(11)と(12)の両辺をそれぞれ足すことで
+            \[
+            \left(\sigma-\frac{\sigma_1+\sigma_2}{2}\right)^2+\tau^2=\left(\frac{\sigma_1-\sigma_2}{2}\right)^2
+            \tag{13}
+            \]
+            が求まる。これを図示すると図５のようになる。これをモール円と呼ぶ。
+            <div class="pic">
+              <img src="images/mohr-circle2.jpg" alt="モール円" style="width:60%;">
+              <figcaption>図５：モール円とクーロンの破壊基準</figcaption>
+            </div>
+            弾性体の変形中、$\sigma_1$の増加に伴ってモール円の半径が大きくなっていく。モール円が式(14)で表されるクーロンの破壊基準に接すると弾性体は破壊する。
+            \[
+            \tau_f=c+\mu_i \sigma_n
+            \tag{14}
+            \]
+            ここで、$c$は凝着力、$\mu_i$は内部摩擦係数である。このときの$\theta$は破壊面の角度である。
+            </p>
+            <p>
+            間隙水圧$p$が存在する場合、間隙水圧が封圧$\sigma_2$を支えるので、弾性体にかかる正味の応力は$\sigma_2-p$となる。したがって、図６のようにモール円は$p$だけ平行移動する。
+            <div class="pic">
+              <img src="images/mohr-circle3.jpg" alt="モール円と間隙水圧" style="width:50%;">
+              <figcaption>図６：モール円と間隙水圧</figcaption>
+            </div>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h3 id="strain">歪</h3></u>
+              <p>弾性体内部の変形は、任意の座標$(x, y, z)$での変位$(u, v, w)$を用いて考える。変化率は下記の変形勾配テンソルで表される。
+                \[
+                \left(
+                  \begin{array}{ccc}
+                    \frac{\partial u_x}{\partial x} & \frac{\partial u_x}{\partial y} & \frac{\partial u_x}{\partial z} \\
+                    \frac{\partial u_y}{\partial x} & \frac{\partial u_y}{\partial y} & \frac{\partial u_y}{\partial z} \\
+                    \frac{\partial u_z}{\partial x} & \frac{\partial u_z}{\partial y} & \frac{\partial u_z}{\partial z}
+                  \end{array}
+                \right)
+                \tag{15}
+                \]
+                天下り的にこれを分解すると、
+                \begin{align*}
+                \left(
+                  \begin{array}{ccc}
+                    \frac{\partial u_x}{\partial x} & \frac{\partial u_x}{\partial y} & \frac{\partial u_x}{\partial z} \\
+                    \frac{\partial u_y}{\partial x} & \frac{\partial u_y}{\partial y} & \frac{\partial u_y}{\partial z} \\
+                    \frac{\partial u_z}{\partial x} & \frac{\partial u_z}{\partial y} & \frac{\partial u_z}{\partial z}
+                  \end{array}
+                \right)
+                &=
+                \left(
+                  \begin{array}{ccc}
+                    \frac{\partial u_x}{\partial x} & \frac{1}{2}\left(\frac{\partial u_x}{\partial y}+\frac{\partial u_y}{\partial x}\right) & \frac{1}{2}\left(\frac{\partial u_x}{\partial z}+\frac{\partial u_z}{\partial x}\right) \\
+                    \frac{1}{2}\left(\frac{\partial u_y}{\partial x}+\frac{\partial u_x}{\partial y}\right) & \frac{\partial u_y}{\partial y} & \frac{1}{2}\left(\frac{\partial u_y}{\partial z}+\frac{\partial u_z}{\partial y}\right) \\
+                    \frac{1}{2}\left(\frac{\partial u_z}{\partial x}+\frac{\partial u_x}{\partial z}\right) & \frac{1}{2}\left(\frac{\partial u_z}{\partial y}+\frac{\partial u_y}{\partial z}\right) & \frac{\partial u_z}{\partial z}
+                  \end{array}
+                \right)
+                +
+                \left(
+                  \begin{array}{ccc}
+                    0 & \frac{1}{2}\left(\frac{\partial u_x}{\partial y}-\frac{\partial u_y}{\partial x}\right) & \frac{1}{2}\left(\frac{\partial u_x}{\partial z}-\frac{\partial u_z}{\partial x}\right) \\
+                    \frac{1}{2}\left(\frac{\partial u_y}{\partial x}-\frac{\partial u_x}{\partial y}\right) & 0 & \frac{1}{2}\left(\frac{\partial u_y}{\partial z}-\frac{\partial u_z}{\partial y}\right) \\
+                    \frac{1}{2}\left(\frac{\partial u_z}{\partial x}-\frac{\partial u_x}{\partial z}\right) & \frac{1}{2}\left(\frac{\partial u_z}{\partial y}-\frac{\partial u_y}{\partial z}\right) & 0
+                  \end{array}
+                \right) \\
+                &=[e_{ij}]+[w_{ij}]
+                \tag{16}
+                \end{align*}
+                第一項が歪テンソルであり、第二項が回転テンソルである。
+                \begin{align*}
+                e_{ij}&=\frac{1}{2}\left(\frac{\partial u_i}{\partial j}+\frac{\partial u_j}{\partial i}\right) \tag{17}  \\
+                w_{ij}&=\frac{1}{2}\left(\frac{\partial u_i}{\partial j}-\frac{\partial u_j}{\partial i}\right) \tag{18}
+                \end{align*}
+              </p>
+              <div class="pic">
+                <img src="images/disp.jpg" alt="変形勾配テンソル" style="width:60%;">
+                <figcaption>図７：歪テンソルの幾何学的意味（[1]を修正）</figcaption>
+              </div>
+              <p>歪テンソルの幾何学的意味を考える。点$A,\ B,\ C$が変形によって図６のように点$A',\ B',\ C'$に移動する場合を考える。
+                線分ABの$x$軸方向の単位長さあたりの変化量は
+                \[
+                \frac{\Delta u_x}{\Delta x}
+                =\frac{(\overline{A'B'}-\overline{AB})_x}{\Delta x}=\left\{\left(\Delta x+\frac{\partial u_x}{\partial x}\Delta x\right)-\Delta x\right\}=\frac{\partial u_x}{\partial x}\frac{1}{\Delta x}=e_{xx}
+                \tag{19}
+                \]
+                $y$軸でも同様に考えると$e_{yy}$となる。このことから、歪テンソルの対角成分は、ある線分が同じ方向に変化するときの変化率を示す。この変化率を軸歪と呼ぶ。
+              </p>
+              <p>
+                線分ABの角度変化$\alpha$は、微小変形を仮定すると$\frac{\partial u_x}{\partial x}\ll 1,\ \tan\alpha\approx\alpha$なので、
+                \begin{align*}
+                \tan\alpha&=\frac{\frac{\partial u_y}{\partial x}\Delta x}{\Delta x+\frac{\partial u_x}{\partial x}\Delta x}
+                =\frac{\frac{\partial u_y}{\partial x}\Delta x}{\left(1+\frac{\partial u_x}{\partial x}\right)\Delta x}=\frac{\partial u_y}{\partial x} \\
+                \alpha &=\frac{\partial u_y}{\partial x}
+                \tag{20}
+                \end{align*}
+                線分ACの角度変化$\beta$も同様にすると、$\beta=\frac{\partial u_x}{\partial y}$なので、
+                \[
+                \alpha +\beta=\frac{\partial u_y}{\partial x}+\frac{\partial u_x}{\partial y}=2e_{xy}
+                \tag{21}
+                \]
+                つまり、
+                \[
+                e_{xy}=\frac{1}{2}(\alpha+\beta)
+                \tag{22}
+                \]
+                したがって、歪テンソルの非対角成分は、変形により生じる角度変化の半分に対応する。この成分をせん断歪と呼ぶ。
+              </p>
+              <p>ここで、$\alpha=0$の場合を考える。
+                \[
+                e_{xy}=\frac{1}{2}\frac{\partial u_x}{\partial y}=\frac{1}{2}\tan\beta
+                \tag{23}
+                \]
+                工学的せん断歪$\gamma_{ij}$は$2e_{ij}$なので、
+                \[
+                \gamma_{ij}=\tan\beta
+                \tag{24}
+                \]
+                微小変形を仮定して、式(23)と(24)を導出しているが、式(24)に関しては、そもそも工学せん断歪の定義より自明でもある。
+              </p>
+              <p>
+                有限歪理論（大変形）では上記のような仮定は使えない。
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h3>参考文献</h3></u>
+            <ol style="list-style-type: none">
+              <li>[1]</li>
+              <li>[2]</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+	
+    <hr>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p style="text-align:center;">Copyright © SandoSawa. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sando Sawa</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet"> <!--画像ポップアップ-->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
+    </script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js" type="text/javascript"></script>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="main.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Research.html">Research</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="CV.html">CV</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="Publication.html">Publication</a>
+          </li>
+		  <li class="nav-item active">
+            <a class="nav-link" href="Tips.html">Tips</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Japanese</a>
+              <a class="dropdown-item" href="main.html">English</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <section>
+      <div class="jumbotron text-center mt-2 jumbotron--img2 jumbotron--text">	
+			<div class="container">
+			  <div class="row">
+				<div class="col-12">
+					<h1>論文作成</h1>
+				</div>
+			  </div>
+			</div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p>論文の作成には多くの時間がかかる。多くの質の良い論文を書くために、できるだけ無駄な時間を省きたいところである。
+                例えば、引用文献リストの作成や図表番号を自動化すれば無駄な時間の多くが省けるだろう。
+                ここでは、wordで論文を書く人を対象としている。latexに関しては「LaTeX2ε美文書作成入門（技術評論社）」が詳しい。
+                latexのほうがある程度自動化が進んでおり、きれいな数式を含む論文を書ける。
+                しかしながら、wordでlatexのコマンドが使えたり、式番号や引用文献を楽に管理できたりと、最近のwordの発達には目覚ましいものがあり、
+                wordも侮りがたい。もちろんlatexには問題点（導入ハードルが高い、校正機能がしょぼい）もあり、実際、論文を書く上での優劣はつけがたい（個人所感）。
+                詳細は、<a href="https://www.elsevier.com/ja-jp/solutions/mendeley/mendeley-guide" style="color:#007398">https://www.elsevier.com/ja-jp/solutions/mendeley/mendeley-guide</a>
+              </p>
+              <u><h2 id="mendeley">文献管理ソフト"Mendeley"の使い方</h2></u>
+              <p>MendeleyはElsevier社がリリースしている文献管理ソフトである。無料の個人ユーザーは2GBまで、機関版だと100GBまで論文を保存・管理できる。
+                各パソコン、タブレットにMendeleyのソフトウェアを入れることで、クラウドを通した各端末での論文管理が可能である。wordのプラグインがあり、
+                様々なジャーナルのフォーマットに対応した引用文献リストを自動的に論文に挿入することができる。また、latex用のbibファイルも作成することができる。
+              </p>
+              <!--
+                <div class="pic">                                    
+                  <a href="images/mendeley_start.jpg" data-lightbox="mendeley" data-title="mendeley初期画面">
+                    <img src="images/mendeley_start.jpg">
+                  </a>
+                  <figcaption>図１：mendeleyの初期画面(クリックで拡大)</figcaption>
+                </div>
+                <div class="pic">                                    
+                  <a href="images/mendeley_folder.jpg" data-lightbox="mendeley" data-title="mendeley管理">
+                    <img src="images/mendeley_folder.jpg">
+                  </a>
+                  <figcaption>図2：フォルダ設定画面(クリックで拡大)</figcaption>
+                </div>
+                -->
+                <ul class="box">
+                  <li class="size">
+                      <a href="images/mendeley_start.jpg" data-lightbox="mendeley" data-title="mendeley初期画面">
+                          <div class="picture" style="background-image:url(images/mendeley_start.jpg)"></div>
+                      </a>
+                      <figcaption>図１：mendeleyの初期画面(クリックで拡大)</figcaption>
+                  </li>
+                  <li class="size">
+                      <a href="images/mendeley_folder.jpg" data-lightbox="mendeley" data-title="mendeley管理">
+                          <div class="picture" style="background-image:url(images/mendeley_folder.jpg)"></div>
+                      </a>
+                      <figcaption>図２：フォルダ設定画面(クリックで拡大)</figcaption>
+                  </li>
+                  <li class="size">
+                    <a href="images/mendeley_bibtex.jpg" data-lightbox="mendeley" data-title="mendeley-bibtex">
+                        <div class="picture" style="background-image:url(images/mendeley_bibtex.jpg)"></div>
+                    </a>
+                    <figcaption>図３：bibファイル出力(クリックで拡大)</figcaption>
+                  </li>
+                </ul>
+
+                <p class="clearleft">一番左上の、"Add"のところをクリックするとマニュアルで論文(pdf)を追加することができる（図1）。
+                  しかしながら、論文一つ一つ手作業で追加していくのは大変なので、フォルダを指定して自動で取り込みできるようにする。
+                  Tools-optionsで設定画面が開く。Watched Foldersのタブで指定したいフォルダにチェックを入れる（図2）。
+                  latex用のbibの出力は設定画面のBibTexのところで設定できる（図3）。
+                  追加した論文の整理（図1）だが、左上のボックスのところでフォルダ分けができる。左下のボックスのところで、筆者やジャーナル名で検索ができる。
+                  wordで自動的に文献リストをつくるプラグインだが、Tools-Install MS Word Pluginで追加することができる。
+              </p>
+
+            </div>
+          </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h3 id="wordmendely">wordで引用文献リストを自動作成</h3></u>
+            <ul class="box">
+              <li class="size">
+                  <a href="images/mendeley_word.jpg" data-lightbox="mendeley-word" data-title="文中で引用">
+                      <div class="picture" style="background-image:url(images/mendeley_word.jpg)"></div>
+                  </a>
+                  <figcaption>図４：wordの文中引用(クリックで拡大)</figcaption>
+              </li>
+              <li class="size">
+                  <a href="images/mendeley_word2.jpg" data-lightbox="mendeley-word" data-title="引用文献作成">
+                      <div class="picture" style="background-image:url(images/mendeley_word2.jpg)"></div>
+                  </a>
+                  <figcaption>図５：wordの引用文献リスト(クリックで拡大)</figcaption>
+              </li>
+            </ul>
+            <p class="clearleft">wordにmendeleyのプラグインを入れると、word上の参考資料のところにプラグインが現れる。
+              文中に引用文献を入れたいときは、Insert Citationをクリックし、キーワードで引用したい文献を探し出してOKをクリックする（図４）。
+              最後尾等に引用文献リストを入れたいときは、Insert Bibliographyを押す（図５赤矢印）。文中で引用した文献のみリスト化される。
+              引用文献のスタイルだが、図５青矢印のところで雑誌指定のスタイルを設定することができる。ない場合は、雑誌のホームページ等も探してほしい。多くの国際誌はこのスタイルファイルを作成している。
+              自動で引用文献リストが作成されるが、完璧にリスト化されるわけではないので注意してほしい。上付き・下付きが正しく表示されてなかったり、小文字であるべきところが大文字になっていたりする。
+              後者に関しては、Mendeleyのアプリで情報を正しく設定してほしい。おすすめは、doiで外部から情報を読み取ってくることである。
+              どちらにせよ、論文提出の前には必ず目視でチェックしてほしい。
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h3 id="number">Wordで図表番号と数式番号を自動でつける</h3></u>
+            <ul class="box">
+              <li class="size">
+                  <a href="images/equation.png" data-lightbox="equation" data-title="式番号の入力">
+                      <div class="picture" style="background-image:url(images/equation.png)"></div>
+                  </a>
+                  <figcaption>図６：wordの式番号(クリックで拡大)</figcaption>
+              </li>
+            </ul>
+            <p class="clearleft">wordでも式番号を自動的に振ることができる（図６）。途中で式を追加しても、ctrl+Aで全選択しF9を押せば更新される。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+	
+    <hr>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p style="text-align:center;">Copyright © SandoSawa. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body>
+</html>

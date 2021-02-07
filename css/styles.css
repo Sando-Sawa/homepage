@@ -1,0 +1,98 @@
+body{ 
+  padding-top: 50px; 
+}
+
+html {
+  font-size: 62.5%; }
+  @media (min-width: 600px) {
+    html {
+      font-size: calc(112.5% + 1 * (100vw - 600px) / 400); } }
+  @media (min-width: 1200px) {
+    html {
+      font-size: calc(125%); } }
+
+.jumbotron--img
+  {
+      background: url("../images/top3.jpg") center no-repeat;
+      background-size: cover;
+  }
+
+@media (min-width: 1600px) {
+  .jumbotron--img
+  {
+      background: url("../images/top2.jpg") center no-repeat;
+      background-size: cover;
+  }
+}
+
+.jumbotron--img2
+ {
+    background: url("../images/top5_2.jpg") center no-repeat;
+    background-size: cover;
+}
+
+.jumbotron--text h1
+{
+	color: white;
+}
+
+.jumbotron--text p
+{
+	color: white;
+}
+
+.jumbotron--color 
+{
+	background-color: rgba(0,0,0,0.50)
+}
+
+.more {
+	color: black;
+	font-style: italic;
+	border-bottom: dotted 1px;
+}
+
+.more:hover {
+  -webkit-transform: scale(1.8,1.8);
+  -moz-transform: scale(1.8,1.8);
+  -o-transform: scale(1.8,1.8);
+  -ms-transform: scale(1.8,1.8);
+  transform: scale(1.8,1.8);
+  font-weight: bold;
+}
+
+table td{
+  padding: 5px;
+}
+
+.pic{
+  text-align: center;
+}
+
+.pic img{
+  width: 30%;
+}
+
+p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.box {
+  width: 100%; }
+
+.size {
+  list-style: none;
+  float: left;
+  margin-right: 2%;
+  width: 30%; }
+
+.picture {
+  background-size: cover;
+  background-position: center center;
+  padding-top: 80%;
+  width: 100%; }
+
+.clearleft{
+  clear: left;
+}

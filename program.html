@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sando Sawa</title>
+    <!-- Bootstrap -->
+    <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.7.1/css/lightbox.css" rel="stylesheet"> <!--画像ポップアップ-->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
+    </script>
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_CHTML">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.1/js/lightbox.min.js" type="text/javascript"></script>
+    <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="main.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Research.html">Research</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="CV.html">CV</a>
+          </li>
+		  <li class="nav-item">
+            <a class="nav-link" href="Publication.html">Publication</a>
+          </li>
+		  <li class="nav-item active">
+            <a class="nav-link" href="Tips.html">Tips</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#">Japanese</a>
+              <a class="dropdown-item" href="main.html">English</a>
+            </div>
+          </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav>
+    <section>
+      <div class="jumbotron text-center mt-2 jumbotron--img2 jumbotron--text">	
+			<div class="container">
+			  <div class="row">
+				<div class="col-12">
+					<h1>プログラム関係</h1>
+				</div>
+			  </div>
+			</div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+          <div class="row">
+            <div class="col-12">
+              <p>基本的に私の<a href="https://github.com/Sando-Sawa" target="_blank" rel="noopener noreferrer" style="color:#007398">github</a>を見てほしい。
+              </p>
+              <u><h2 id="mtex">MTEXによる結晶方位解析(EBSD)</h2></u>
+              <p>EBSD分析とは、結晶に電子線を当て、結晶面での回折電子から生じた後方散乱を解析することによって結晶構造を解析する手法である。
+                得られたデータは、EBSD検出器に付属しているソフトウェアかフリーソフトのMTEXで解析する。MTEXはMATLABベースなので、MATLABが必要である。</p>
+              <h5>データ処理スクリプトについて</h5>
+              <p>
+                MTEXを使って、Phase MapやIPFマップ、極図（pole figure）、misorientationマップを作成するスクリプトはgithubの
+                <a href="https://github.com/Sando-Sawa/mtexebsd" target="_blank" rel="noopener noreferrer" style="color:#007398">mtexebsd</a>に置いてあります。
+                ebsd_filled_plot.mです。使用する際は自己責任でお願いします。
+                ユーザーフレンドリーに作られていませんが、適宜アップデートしていく予定です。
+              </p>
+
+            </div>
+          </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h3 id="griggs">Griggs型変形試験機で得られた生データを処理するVBA-ヒットポイントの探索アルゴリズム</h3></u>
+            <p>Griggs型固体圧変形試験機で得られる生データを補正して応力ーひずみ曲線を描くためのエクセルVBAファイルである。ブラウン大で使われていたプログラムをもとにしている。
+              ヒットポイントは最小2乗法を使用して検索している。こちらも<a href="https://github.com/Sando-Sawa/griggsdata" target="_blank" rel="noopener noreferrer" style="color:#007398">griggsdata</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h3 id="script">連番ファイル作成バッチファイル</h3></u>
+            <p>大量のデータをプログラムに処理するために、連番のフォルダやファイルを作りたいときに活躍するはず。windowsのみ。
+              下記のコードをテキストファイルにコピーして、拡張子をbatにすれば完成。ダブルクリックで動く。ファイル名-連番数字のフォルダができる。
+              違う形にしたいときは適宜下記を書き換え</p>
+              <ul>
+                <li>@echo offは出力結果の表示をオフ。次の3行は入力処理。</li>
+                <li>setlocal enabledelayedexpansionは遅延環境変数。詳しくは
+                  <a href="https://wa3.i-3-i.info/word12518.html" target="_blank" rel="noopener noreferrer" style="color:#007398">https://wa3.i-3-i.info/word12518.html</a></li>
+                <li>%で囲むと変数の中身を参照できる。for以降は繰り返しフォルダを作成するforループ。for /l 変数 in (初期値,ステップ幅,末尾) do (mkdir ファイル名-番号)</li>
+              </ul>
+            <pre><code class="prettyprint">
+              @echo off
+
+              set /p filename="フォルダ名を入力してください："
+              set /p numberi="最初のフォルダ番号を入力してください："
+              set /p numberii="最後のフォルダ番号を入力してください："
+
+              setlocal enabledelayedexpansion
+
+              for /l %%n in (%numberi%,1,%numberii%) do (
+                mkdir %filename%-%%n
+              )
+
+              endlocal
+            </code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h3 id="slack">slack上で動く翻訳アプリ</h3></u>
+            <p>slackで"trans (翻訳元言語) (翻訳語言語) 本文"と入力すると自動的に本文をgoogle翻訳してくれるアプリ。留学生と日本人が混在するslackのワークスペースで活躍するはず。
+              設定の仕方は偉大なる先人のサイトを参考にしてほしい。
+              <a href="https://qiita.com/shohei-y/items/6784ae87ca180c7c5157" target="_blank" rel="noopener noreferrer" style="color:#007398">https://qiita.com/shohei-y/items/6784ae87ca180c7c5157</a>
+            </p>
+            <pre><code class="prettyprint">
+              function doPost(e) {
+                var token = "xoxb-1084668243909-1161723051606-cQBjIbEhtdkTfXclRXPYga8W";
+              
+                // 応答時のBOT名
+                var bot_name = "translateapp";
+              
+                // アイコン絵文字
+                var bot_icon = ':ghost:';
+                // 発信webフックのTokenを設定
+                var verify_token = "XPOzrFprWBuB4Id5a5i93bEe"
+              
+                // トークンのセキュリティチェック
+                if (verify_token != e.parameter.token) {
+                  throw new Error("invalid token.");
+                };
+              
+                // SlackAPPの作成
+                var slackApp = SlackApp.create(token);
+              
+                var body = e.parameter.text.substr(6); // textsh 以降の抽出
+                var tmpSplit = body.split(" ",2);
+                var original_lan = tmpSplit[0]         // 原文の言語
+                var convert_lan = tmpSplit[1]          // 翻訳先の言語
+                var response;
+                
+                if (original_lan == "help") {
+              
+                  // 結果の編集
+                  response = "【基本文】\ntrans *翻訳元言語* *翻訳先言語* *翻訳文章*\n "
+                           + "【例文】\ntrans *ja* *en* *こんにちは*\n\n"
+                           + "言語は下記から選択。（※他言語は、調べよう）\n" 
+                           + "```\n" 
+                           + "日本語・・・「ja」英語・・・「en」\n"
+                           + "中国語（簡体）・・・「zh-CN」　　中国語（繁体）・・・「zh-TW」\n"
+                           + "韓国語・・・「ko」　　ドイツ語・・・「de」\n"
+                           + "イタリア語・・・「it」　　自動検出・・・「auto」\n"
+                           + "```\n" 
+              
+                } else {
+              
+                  var message = body.substr(original_lan.length + convert_lan.length + 2 );          // 翻訳対象の原文
+                  // Google翻訳の実行
+                  message = LanguageApp.translate(message, original_lan, convert_lan);
+              
+                  // 結果の編集
+                  response = original_lan + " to " + convert_lan + "\n ``` \n" + message + "\n ``` ";
+              
+                }
+              
+                return slackApp.postMessage(e.parameter.channel_id, response, {
+                  username: bot_name,
+                  icon_emoji: bot_icon
+                });
+              </code></pre>
+          </div>
+        </div>
+      </div>
+    </section>
+    <hr>
+    <footer class="text-center">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <p style="text-align:center;">Copyright © SandoSawa. All rights reserved.</p>
+          </div>
+        </div>
+      </div>
+
+
+    </footer>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap-4.4.1.js"></script>
+  </body>
+</html>
