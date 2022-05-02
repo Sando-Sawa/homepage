@@ -16,7 +16,7 @@
     <title>Sando Sawa</title>
     <!-- Bootstrap -->
     <link href="css/bootstrap-4.4.1.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css?20220502" rel="stylesheet" type="text/css">
     <script type="text/x-mathjax-config">
       MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ["\\(","\\)"]] } });
     </script>
@@ -85,7 +85,7 @@
                 したがって、任意の面に応力$S$が作用している場合、$S$は面に垂直に作用する成分（$\sigma$：垂直応力）と平行に作用する成分（$\tau$：剪断応力）に分解することができる。</p>
                 <div class="pic">
                   <img src="images/stressfield.jpg" alt="応力状態">
-                  <figcaption>図１：直交座標系における応力成分（[1]を修正）</figcaption>
+                  <figcaption>図１：直交座標系における応力成分</figcaption>
                 </div>
                 <p>直交座標系において同様に応力を分解すると図1のようになる。垂直応力$\sigma_x$の添字$x$は応力が作用する方向を表す。
                 一方、剪断応力$\tau_{xy}$の最初の添字$x$は応力の作用する面の法線方向を表し、２番目の添字は応力の作用する方向を表している。
@@ -125,7 +125,7 @@
               </p>
               <div class="pic">
                 <img src="images/smallstressfield.jpg" alt="x軸応力状態">
-                <figcaption>図２：x軸方向における応力成分（[1]を修正）</figcaption>
+                <figcaption>図２：x軸方向における応力成分</figcaption>
               </div>
               <p>x軸方向における応力成分は図2のようになる。偏微分$\partial \sigma_{xx}/\partial x$は単位距離当たりの変化量を表す。したがって距離をかけてあれば離れた面での応力がわかる。
                 x軸方向の釣り合いの式は、体積力$F_x$が作用していることを考慮して、
@@ -145,7 +145,7 @@
               </p>
               <div class="pic">
                 <img src="images/cauchy.jpg" alt="コーシーの関係">
-                <figcaption>図３：微小四面体（[1]を修正）</figcaption>
+                <figcaption>図３：微小四面体</figcaption>
               </div>
               <p>応力テンソル$\sigma_{ij}$が与えられたとき、法線ベクトルが$n$である面（面積：$dS$）に作用する応力ベクトル$T_i$は、
                 \[
@@ -233,7 +233,7 @@
       <div class="container">
         <div class="row">
           <div class="col-12">
-            <u><h3 id="strain" name="strain">歪</h3></u>
+            <u><h2 id="strain" name="strain">歪</h2></u>
               <p>弾性体内部の変形は、任意の座標$(x, y, z)$での変位$(u, v, w)$を用いて考える。変化率は下記の変形勾配テンソルで表される。
                 \[
                 \left(
@@ -281,13 +281,13 @@
               </p>
               <div class="pic">
                 <img src="images/disp.jpg" alt="変形勾配テンソル" style="width:60%;">
-                <figcaption>図７：歪テンソルの幾何学的意味（[1]を修正）</figcaption>
+                <figcaption>図７：歪テンソルの幾何学的意味</figcaption>
               </div>
               <p>歪テンソルの幾何学的意味を考える。点$A,\ B,\ C$が変形によって図６のように点$A',\ B',\ C'$に移動する場合を考える。
                 線分ABの$x$軸方向の単位長さあたりの変化量は
                 \[
                 \frac{\Delta u_x}{\Delta x}
-                =\frac{(\overline{A'B'}-\overline{AB})_x}{\Delta x}=\left\{\left(\Delta x+\frac{\partial u_x}{\partial x}\Delta x\right)-\Delta x\right\}=\frac{\partial u_x}{\partial x}\frac{1}{\Delta x}=e_{xx}
+                =\frac{(\overline{A'B'}-\overline{AB})_x}{\Delta x}=\left\{\left(\Delta x+\frac{\partial u_x}{\partial x}\Delta x\right)-\Delta x\right\}\frac{1}{\Delta x}=\frac{\partial u_x}{\partial x}=e_{xx}
                 \tag{19}
                 \]
                 $y$軸でも同様に考えると$e_{yy}$となる。このことから、歪テンソルの対角成分は、ある線分が同じ方向に変化するときの変化率を示す。この変化率を軸歪と呼ぶ。
@@ -327,6 +327,73 @@
               <p>
                 有限歪理論（大変形）では上記のような仮定は使えない。
               </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h2 id="stressstrain" name="stressstrain">応力と歪みの関係</h2></u>
+              <p>応力（空間）と歪（空間）の関係を表したものが構成方程式である。2階のテンソルである応力と歪を結びつけるのが4階のテンソルである弾性定数$C_{ijkl}$。
+                \[
+                \sigma_{ij}=C_{ijkl}\varepsilon_{kl}
+                \tag{25}
+                \]
+                弾性定数は$C_{1111},\ C_{1112},\ C_{3333}$の81成分を持つが、対称性を考えると独立な成分は21個となる。物質が完全な等方弾性体であるとすると、独立な成分は2個のみとなり、クロネッカーのデルタ$\delta$を用いて次のように書ける。
+                \[
+                C_{ijkl}=\lambda\delta_{ij}\delta_{kl}+\mu(\delta_{ik}\delta_{jl}+\delta_{il}\delta_{jk}).
+                \tag{26}
+                \]
+                ここで、$\lambda$はラメの第一定数、$\mu$は剛性率である。等方弾性体における弾性定数は他にも、ヤング率$E$、ポアソン比$\nu$、体積弾性率$K$があるが、5つの弾性定数はそれぞれ2つを用いれば表すことができる（表1）。</p>
+              <p style="text-align:center">表1：等方弾性体における弾性定数の相関関係</p>
+              \begin{array}{c|ccccc}
+                & E & \mu & \lambda & K & \nu \\
+              \hline
+              E,\ G & E & \mu & \frac{\mu(E-2\mu)}{3\mu-E} & \frac{E\mu}{3(3\mu-E)} & \frac{E-2\mu}{2\mu} \\
+              E,\ K & E & \frac{3EK}{9K-E} & \frac{3K(3K-E)}{9K-E} & K & \frac{3K-E}{6K} \\
+              E,\ \nu & E & \frac{E}{2(1+\nu)} & \frac{\nu E}{(1+\nu)(1-2\nu)} & \frac{E}{3(1-2\nu)} & \nu \\
+              \lambda,\ \mu & \frac{\mu(3\lambda+2\mu)}{\lambda+\mu} & \mu & \lambda & \frac{3\lambda+2\mu}{3} & \frac{\lambda}{2(\lambda+\mu)} \\
+              \mu,\ K & \frac{9K\mu}{3K+\mu} & \mu & \frac{3K-2\mu}{3} & K & \frac{3K-2\mu}{6K+2\mu} \\
+              \mu,\ \nu & 2(1+\nu)\mu & \mu & \frac{2\nu\mu}{1-2\nu} & \frac{2(1+\nu)\mu}{3(1-2\nu)} & \nu \\
+              K,\ \nu & 3K(1-2\nu) & \frac{(3-6\nu)K}{2(\nu+1)} & \frac{3\nu K}{1+\nu} & K & \nu
+              \end{array}
+              <p>ヤング率$E$は線形弾性体における同軸方向の応力と歪の比例定数である。
+                  \[
+                  \sigma=E\varepsilon
+                  \tag{27}
+                  \]
+                  剛性率$\mu$は線形弾性体における同軸方向のせん断応力とせん断歪の比例定数である。
+                  \[
+                  \tau=\mu \gamma
+                  \tag{28}
+                  \]
+                  ポアソン比$\nu$は、物体に応力を加えたときに、印加方向と垂直に発生する歪と水平方向に発生する歪の比を取ったものである。例えば、
+                  \[
+                  \nu_x=-\frac{\varepsilon_x}{\varepsilon_z}
+                  \tag{29}
+                  \]
+                  体積弾性率$K$は、平均応力と体積歪の比例定数である。
+                  \[
+                  \frac{\sigma_{ii}}{3}=K\varepsilon_{ii}
+                  \tag{30}
+                  \]
+              </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <u><h2 id="stressstraincurve" name="stressstraincurve">応力－歪曲線</h2></u>
+            <div class="pic">
+              <img src="images/stressstraincurve.jpg" alt="応力ひずみ曲線" style="width:60%;">
+              <figcaption>図8：応力－歪曲線</figcaption>
+            </div>
+            <p>ひずみ速度が一定の岩石の変形実験を行うと、応力ひずみ曲線が得られる（図8）。初め、応力と歪の関係は一定であり、岩石は弾性変形をしている（①）。しかしながら、応力が岩石の降伏強度$\sigma_Y$より大きくなると、応力と歪みの関係は一定でなくなり、岩石は塑性変形し始める（②）。更に応力を加え、流動応力$\sigma_F$よりも応力が大きくなると、岩石は一定の流動応力で粘性変形する（③）。塑性変形と粘性変形の違いは、塑性変形は時間に依存しないが、粘性変形は時間に依存する。したがって、粘性変形における流動則（クリープ則）には時間に関連するひずみ速度$\dot{\varepsilon}$が項として入っている。</p>
           </div>
         </div>
       </div>
