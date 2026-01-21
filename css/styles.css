@@ -11,18 +11,26 @@ html {
     html {
       font-size: calc(125%); } }
 
-.jumbotron--img
-  {
-      background: url("../images/top3.jpg") center no-repeat;
-      background-size: cover;
-  }
+/* 小画面用（デフォルト） */
+.jumbotron--img {
+    background: url("../images/top4_3.jpg") center no-repeat;
+    background-size: cover;
+}
 
+/* 中画面用（600px以上） */
+@media (min-width: 600px) {
+    .jumbotron--img {
+        background: url("../images/top4_2.jpg") center no-repeat;
+        background-size: cover;
+    }
+}
+
+/* 大画面用（1600px以上） */
 @media (min-width: 1600px) {
-  .jumbotron--img
-  {
-      background: url("../images/top2.jpg") center no-repeat;
-      background-size: cover;
-  }
+    .jumbotron--img {
+        background: url("../images/top4_2.jpg") center no-repeat;
+        background-size: cover;
+    }
 }
 
 .jumbotron--img2
